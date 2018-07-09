@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Super Messenger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/style.css" />
+</head>
+<body>
+    <body id="body-section">
+    <section class="site-title">
+        <h1>Super Messenger</h1>
+    </section>
+    <section class="login-buttons-container" id='login-buttons-container'>
+        <section class="signin">
+            <a href="" id="create-account">Create An Account</a>
+            <a href="" id="sign-in">Sign In</a>
+        </section>
+    </section>
+    <section class="login-buttons-container" id="logout-buttons-container" hidden>
+        <section class="signin">
+            <a href="" id="setting-button">Settings</a>
+            <a href="" id="logout-button">Logout</a>
+        </section>
+    </section>
+    <section id="create-account-container" class="create-account-container">
+        <form name="createAccount" class="create-account-form-container">
+            <h3>Create An Account</h3>
+            <label for="">First Name</label>
+            <input name="firstName" type="text">
+            <label for="">Last Name</label>
+            <input name="lastName" type="text">
+            <label for="">Email</label>
+            <input name="email" type="email">
+            <label for="">Username</label>
+            <input name="username" type="text" placeholder="choose a username">
+            <label for="">Password</label>
+            <input name="password" type="password">
+            <label for="">Confirm Password</label>
+            <input name"confirm-password" type="password">
+            <button id="submit-create-account">Submit Account</button>
+        </form>
+        <form id='create-volunteer-profile' class="create-account-form-container" name="create-account-form-container" hidden>
+            <h3>Create Volunteer Profile</h3>
+            <label for="">Upload Profile Picture</label>
+            <input type="url" name="imageURL" placeholder="image url">
+            <h4>Preferences</h4>
+            <h5>Share something about yourself. What are you looking to get out of volunteer opportunities?</h4>
+            <textarea name="volunteerBio" id="volunteer-bio" cols="30" rows="10"></textarea>
+            <h4>Privacy</h4>
+            <label for="">Allow Others To See My Profile And Invite Me to Volunteer</label>
+            <input type="checkbox" name='publicProfile'>
+            <div>
+                <label for="">Display my name</label>
+                <input name='displayName' type="radio" value='fullname'>
+                <label for="">Display my username only</label>
+                <input name='displayName' type="radio" value='username' checked>
+            </div>
+            <h4>Notifications</h4>
+            <label for="why">Let me know when any details of volunteer opportunities that I've signed up for change</label>
+            <input type="checkbox" id="why" checked>
+            <label for="text-message-reason">Send me these details via text message as well as email</label>
+            <label for="text-message">Text Message</label>
+            <input type="checkbox" checked>
+            <label for="phone-number">Phone Number</label>
+            <input type="text" placeholder="(123) 456-7890">
+            <label for="email-me">Send me one email with a list of volunteer opportunites once per week</label>
+            <input type="checkbox" checked>
+            <button id="submit-volunteer-profile">Next</button>
+        </form>
+    </section>
+    <section class="create-account-container" id="sign-in-container" hidden>
+        <form action=""name="loginAccount" class="create-account-form-container">
+            <h2>Sign In</h2>
+            <label for="" style="margin-right: 1%">Email:</label>
+            <input name="email" type="text">
+            <label for="" style="margin-right: 1%">Password:</label>
+            <input name="password" type="password">
+            <button id='sign-in-submit'>Sign In</button>
+        </form>
+    </section>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+/* body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+} */
+
+/* .header {
+    display: flex; 
+    flex-direction: row;
+    margin-top: 2%;
+    justify-content: center;
+} */
+
+p {
+  margin-bottom: 0px; 
+}
+
+.site-title {
+  display: flex; 
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.login-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2%;
+  margin-top: 1%
+}
+
+.signin {
+  display: flex;
+  flex-direction: column;
+  margin-top: -5%
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2%;
+  margin-right: 2%;
+}
+
+.navigation-item {
+  margin-left: 6%;
+}
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
+}
+
+.search-bar {
+  width: 90%;
+}
+
+.create-account-container {
+  display: flex;
+  justify-content: center;
+}
+
+.create-account-form-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sign-in-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-in-subcontainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.add-volunteer-opportunity-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2%;
+  margin-top: 2%;
+}
+
+.add-volunteer-opportunity-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.add-volunteer-opportunity-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* .display-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 0px;
+} */
+
+.cards-container-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px; 
+  width: 90%;
+}
+
+.card-list-view {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* padding: 2px 16px;  */
+  /* width: 1200px; */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  /* height: 180px; */
+  width: 90%;
+}
+
+.card-column {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+}
