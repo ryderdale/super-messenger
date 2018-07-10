@@ -38,13 +38,6 @@ p {
   margin-top: -5%
 }
 
-.navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 2%;
-  margin-right: 2%;
-}
 
 .navigation-item {
   margin-left: 6%;
@@ -84,24 +77,6 @@ p {
   margin-bottom: 1%;
 }
 
-.add-volunteer-opportunity-button {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 2%;
-  margin-top: 2%;
-}
-
-.add-volunteer-opportunity-form-container {
-  display: flex;
-  justify-content: center;
-}
-
-.add-volunteer-opportunity-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 /* .display-content {
   display: flex;
   flex-direction: row;
@@ -109,32 +84,11 @@ p {
   margin-top: 0px;
 } */
 
-.cards-container-list {
+.compose-message-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 30px; 
-  width: 90%;
+  width: 80%;
 }
 
-.card-list-view {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  /* padding: 2px 16px;  */
-  /* width: 1200px; */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  margin-left: 30px;
-  margin-bottom: 30px;
-  /* height: 180px; */
-  width: 90%;
-}
 
-.card-column {
-  display: flex;
-  flex-direction: column;
-  margin-left: 10%;
-}
