@@ -184,14 +184,15 @@ function generateInboxMessages () {
         console.log(messageObjects);
         messageObjects.forEach( (message) => {
         let inbox = document.getElementById('inbox-container');
+        let messageContainer = document.createElement('section');
         let messagePreview = message.message_content;
         messagePreview.slice(0,45);
-        let accordian = 
+        messageContainer.innerHTML = 
         `<div class="card" data-toggle="collapse" data-target="#collapseOne"> 
         <div class="card-header  message-collapse-expanded" id="headingOne"><input type="checkbox">
                     <button>Delete</button>
                     <button>Reply</button>
-                    <p class="message-banner-from">`+ message.from +`</p>
+                    <p class="message-banner-from">`+ message.from_username +`</p>
                     <p class="message-collpase-header">`+ messagePreview +`</p>
                     <p class="message-banner-date-time">`+ message.dateTime +`</p>
         </div>
@@ -201,7 +202,7 @@ function generateInboxMessages () {
             `</div>
         </div>
         </div`;
-        inbox.appendChild(accordian);
+        inbox.appendChild(messageContainer);
         });
         
     })
