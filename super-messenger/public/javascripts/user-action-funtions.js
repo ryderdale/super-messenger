@@ -74,7 +74,9 @@ function signinSubmitFetch() {
     });
 }
 
-function sendMessage (to) {
+function composeMessage () {
+    console.log('initiated compose message function')
+    let body = {};
     body.to = document.sendMessageForm.to.value;
     body.message_content = document.sendMessageForm.sendMessageForm.value;
     body.from = user_id;
@@ -95,6 +97,3 @@ function sendMessage (to) {
     })
 } 
 
-function generateInboxMessages() {
-
-}

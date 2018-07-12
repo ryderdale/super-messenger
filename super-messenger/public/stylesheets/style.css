@@ -84,6 +84,12 @@ p {
   margin-top: 0px;
 } */
 
+.compose-message-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
+
 .compose-message-form {
   display: flex;
   flex-direction: column;
@@ -92,3 +98,28 @@ p {
 }
 
 
+.inbox-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inbox-collapse {
+
+}
+
+.message-collapse-closed {
+  text-decoration: none;
+}
+
+.message-collapse-expanded {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-around;
+}

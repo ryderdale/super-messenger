@@ -13,11 +13,11 @@
 </head>
 <body>
     <body id="body-section">
-        <section class="sandwhich-button">
+        <!-- <section class="sandwhich-button">
             <h1 id="nav-button">Nav Button</h1>
             <img src="/public/images/Artboard1.png" alt="image">
             <h3 id="inbox">Inbox</h3>
-        </section>
+        </section> -->
         <section class="site-title">
             <h1>Super Messenger</h1>
         </section>
@@ -79,7 +79,7 @@
                 <button id="submit-volunteer-profile">Next</button>
             </form>
         </section>
-        <section class="create-account-container" id="sign-in-container">
+        <section class="create-account-container" id="sign-in-container" hidden>
             <form action=""name="loginAccount" class="create-account-form-container">
                 <h2>Sign In</h2>
                 <label for="" style="margin-right: 1%">Email:</label>
@@ -89,16 +89,53 @@
                 <button id='sign-in-submit'>Sign In</button>
             </form>
         </section>
-        <section class="compose-message-container" id="compose-message-container" hidden>
-            <form action="" class="compose-message-form">
-                <input type="text" id="to-field" placeholder="To:">
-                <textarea name="message-content" id="message-content" cols="30" rows="10"></textarea>
-                <button id="send-message">Send</button>
-            </form>
-            <h4 id="message-sent">message successfully sent</h4>
+        <section class="navigation" id="navigation">
+                <button id="inbox">Inbox</button>
+                <button id="compose">Compose</button>
+                <button id="sent">Sent</button>
+            </section>
+        <section id="inbox-container">
+                <div class="card darker-card-border">
+                    <div class="card-header message-collapse-expanded" id="headingOne" >
+                        <input type="checkbox">
+                        <p class=message-banner-from>FROM</p>
+                        <p class="message-collpase-header">Message</p>
+                        <p class="message-banner-date-time">Date</p>
+                    </div>  
+                </div>
+                <div class="card" data-toggle="collapse" data-target="#collapseOne">
+                    <div class="card-header  message-collapse-expanded" id="headingOne">
+                                <input type="checkbox">
+                                <button>Delete</button>
+                                <button>Reply</button>
+                                <p class=message-banner-from>Mary Johnson</p>
+                                <p class="message-collpase-header">Hi Mary, how are you? I've been excited to get back in touch with you...</p>
+                                <p class="message-banner-date-time">3:54 PM</p>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>      
         </section>
-        <section id="inbox-container" hidden>
-            
+        <section class="compose-message-container" id="compose-message-container" hidden>
+                <form name="composeMessageForm" class="compose-message-form">
+                    <input type="text" name="composeTo" id="composeTo" placeholder="To:">
+                    <textarea name="messageContent" id="messageContent" cols="30" rows="10"></textarea>
+                    <button id="send-message">Send</button>
+                </form>
+                <h4 id="message-sent" hidden>message sent successfully</h4>
+        </section>
+        <section id="sent-container">
+                <div class="card darker-card-border">
+                    <div class="card-header message-collapse-expanded" id="headingOne" >
+                        <input type="checkbox">
+                        <p class=message-banner-from>FROM</p>
+                        <p class="message-collpase-header">Message</p>
+                        <p class="message-banner-date-time">Date</p>
+                    </div>  
+                </div>
         </section>
         <script src="javascripts/main.js"></script>
 </body>

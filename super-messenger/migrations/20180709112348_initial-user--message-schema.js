@@ -21,28 +21,34 @@ exports.up = function(knex, Promise) {
         })
     })
     .then( () => {
-        return knex.schema.createTable('message_content_from', (table) => {
+        return knex.schema.createTable('messages', (table) => {
             table.increments('message_id').unique();
             table.integer('from').references('user_id').inTable('users');
             table.string('message_content');  
-
+            table.dateTime('dateTime');
+        })
+    })
+    .then( () => {
+        return knex.schema.createTable('message_thread', (table) => {
+            table.increments('thread_id').unique();
+            table.integer('message_id').references('message_id').inTable('messages')
         })
     })
     .then( () => {
         return knex.schema.createTable('message_to', (table)=> {
-            table.integer('message_id').references('message_id').inTable('message_content_from');
+            table.integer('message_id').references('message_id').inTable('messages');
             table.integer('to').references('user_id').inTable('users');
         })
     }) 
     .then( () => {
         return knex.schema.createTable('message_cc', (table)=> {
-            table.integer('message_id').references('message_id').inTable('message_content_from');
+            table.integer('message_id').references('message_id').inTable('messages');
             table.integer('cc').references('user_id').inTable('users');
         })
     }) 
     .then( () => {
         return knex.schema.createTable('message_bcc', (table)=> {
-            table.integer('message_id').references('message_id').inTable('message_content_from');
+            table.integer('message_id').references('message_id').inTable('messages');
             table.integer('bcc').references('user_id').inTable('users');
         })
     })
@@ -57,8 +63,11 @@ exports.down = function(knex, Promise) {
     .then( ()=>{
         return knex.schema.dropTable('message_to')
     })
+    .then( () => {
+        return knex.schema.dropTable('message_thread')
+    })
     .then( ()=>{
-        return knex.schema.dropTable('message_users')
+        return knex.schema.dropTable('messages')
     })
     .then( ()=>{
         return knex.schema.dropTable('user_profile')

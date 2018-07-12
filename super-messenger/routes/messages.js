@@ -9,17 +9,25 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/', function(req, res) {
-    let responseObject;
     console.log('request initiated');
-    knex('messages').insert({
-        from: req.body.from,
-        message_content: req.body.message_content,
+    let to_user;
+    let responseObject;
+    console.log(req.body);
+    knex('users').where('email', req.body.to).first()
+    .then ( (user)=> {
+        to_user = user.user_id;
+        console.log(to_user);
+       return knex('messages').returning('*').insert({
+            from: req.body.from,
+            message_content: req.body.message_content
+        })
     })
-    .then((messages)=> {
-        responseObject = message[0];
-        knex('to').insert({
+    .then((messages) => {
+        console.log('setting to', messages[0]);
+        responseObject = messages[0];
+        return knex('message_to').returning('*').insert({
            message_id: messages[0].message_id,
-           to: req.body.to
+           to: to_user
         })
     })
     .then( (tos) => {
@@ -34,22 +42,37 @@ router.post('/', function(req, res) {
     });
 });
 
-router.get('/received', function(req, res) {
-    let responseArray;
-    knex('to').where(to, req.body.user_id)
+router.post('/received', function(req, res) {
+    console.log('received messages request initiated');
+    console.log(req.body);
+    let responseArray = [];
+    knex('message_to').where('to', req.body.to)
     .then((tos)=> {
-        for(let i = 0; i>tos.length; i++ ) {
+        console.log(tos);
+        for(let i = 0; i<tos.length; i++ ) {
             let messageObject;
-            knex('messages').where(message, tos[i].message_id)
-            .then((messages)=> {
-                messageObject = messages[i];
+            knex('messages')
+            .where('message_id', tos[i].message_id)
+            .then((message)=> {
+                console.log(message);
+                messageObject = message[0];
+                console.log(messageObject);
                 messageObject.to = tos[i];
-                responseArray.push(messageObject)
+                responseArray.push(messageObject);
+                console.log(responseArray);
+                return knex('users').returning('username').where('user_id', messageObject.from).first()
+            })
+            .then((from_user)=> {
+                responseArray[i].from_username = from_user.username;
+                console.log(responseArray);
                 return responseArray;
             })
+            .then((responseArray)=>{
+                console.log(responseArray);
+                res.status(200).send(responseArray);
+            })
         }
-    res.status(200).send(responseArray);
-    })
+    }) 
 })
 
 

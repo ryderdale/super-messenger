@@ -50,7 +50,7 @@ const messages = require('./routes/messages');
 app.use('/', indexRouter);
 app.use('/users', users);
 
-app.use('/', messages);
+app.use('/messages', messages);
 // app.use('/volunteer-opportunities', volunteerOpps);
 // app.use('/volunteers', volunteers);
 

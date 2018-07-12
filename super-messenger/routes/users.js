@@ -48,7 +48,7 @@ router.post('/', function(req, res) {
         });
     })
     .then(() => {
-        return knex('users').where('username', req.body.username)
+        return knex('users').where('email', req.body.username)
     })
     .then((user_object)=> {
         res.status(200).send(user_object)
