@@ -62,7 +62,7 @@ function signinSubmitFetch() {
     fetch(loginURL, appInit).then(function(response){
         return response.json();   
     })
-    .then((user)=>{
+    .then((user)=> {
         user_id = user[0].user_id; 
         document.getElementById('sign-in-container').hidden = true;
         document.getElementById('login-buttons-container').hidden = true;
@@ -74,26 +74,5 @@ function signinSubmitFetch() {
     });
 }
 
-function composeMessage () {
-    console.log('initiated compose message function')
-    let body = {};
-    body.to = document.sendMessageForm.to.value;
-    body.message_content = document.sendMessageForm.sendMessageForm.value;
-    body.from = user_id;
-    let messageHeaders = new Headers();
-    messageHeaders.append('content-type', 'application/json');
-    let appInit = {
-        method: 'POST',
-        headers: messageHeaders,
-        body: JSON.stringify(body)
-    }
-    let URL = "/messages"
-    fetch(URL, appInit).then(function(response) {
-        return response.json();
-    })
-    then(() => {
-        document.getElementById('message-sent').hidden = false;
-        document.getElementById('message-form').hidden= true;
-    })
-} 
+
 

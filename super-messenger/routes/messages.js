@@ -8,6 +8,20 @@ const knex = require('knex')(config);
 const express = require('express');
 const router = express.Router();
 
+
+router.delete('/' , function (req, res) {
+    knex('messages').where('message_id',req.body.message_id).first().del()
+    .then();
+    knex('message_to').where('message_id', req.body.message_id).first().del()
+    .then(()=> {
+        console.log('message_deleted now time to resp');
+        res.status(200)
+    })
+    .catch((error) => {
+        res.status(500).send(error);
+    });
+});
+
 router.post('/', function(req, res) {
     console.log('request initiated');
     let to_user;
@@ -55,7 +69,7 @@ router.post('/received', function(req, res) {
             .where('message_id', tos[i].message_id)
             .then((message)=> {
                 console.log(message);
-                messageObject = message[0];
+                messageObject = message[i];
                 console.log(messageObject);
                 messageObject.to = tos[i];
                 responseArray.push(messageObject);
@@ -74,6 +88,39 @@ router.post('/received', function(req, res) {
         }
     }) 
 })
+
+router.post('/sent', function (req, res) {
+    console.log('sent request initiated');
+    let responseArray = []; 
+    knex('messages').where('from',req.body.to)
+    .then((messages)=> {
+        console.log(messages);
+        for(let i = 0; i<messages.length; i++) {
+            responseArray.push(messages[i]);
+            console.log(responseArray);
+            return knex('message_to').returning('to').where('message_id', messages[i].message_id)
+            .then((to)=> {
+                console.log(to);
+                responseArray[i].to = to.to;
+                console.log(responseArray);
+                return knex('users').where('user_id',to).first()
+            })
+            .then( (to_username) => {
+                console.log(to_username);
+                responseArray[i].to_username = to_username;
+                return responseArray
+            })
+            .then((responseArray)=> {
+                console.log(responseArray);
+                res.status(200).send(responseArray);
+            })
+        }
+    }) 
+});
+
+
+
+
 
 
 module.exports = router;

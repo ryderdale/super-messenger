@@ -29,9 +29,10 @@ app.use(express.static('public'));
 //     return require('crypto').randomBytes(48, function(ex, buf) { console.log(buf.toString('hex')) });
 // }
 
-app.use(function(req, res, next) {
-    next();
-});
+// app.use(function(req, res, next) {
+//     console.log(req);
+//     next();
+// });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
