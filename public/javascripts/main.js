@@ -42,7 +42,7 @@ let user_id;
 function createAccountButton () {
     document.getElementById('sign-in-container').hidden = true;
     document.getElementById('create-account-container').hidden = false;
-    document.getElementById('navigation').hidden = false; 
+    document.getElementById('navigation').hidden = true; 
     document.getElementById('inbox-container').hidden = true; 
     document.getElementById('compose-message-container').hidden = true; 
     document.getElementById('sent-container').hidden = true;
@@ -51,7 +51,7 @@ function createAccountButton () {
 function signInButton () {
     document.getElementById('create-account-container').hidden = true;
     document.getElementById('sign-in-container').hidden = false;
-    document.getElementById('navigation').hidden = false; 
+    document.getElementById('navigation').hidden = true; 
     document.getElementById('inbox-container').hidden = true; 
     document.getElementById('compose-message-container').hidden = true; 
     document.getElementById('sent-container').hidden = true;
@@ -80,11 +80,13 @@ function createUserInstance () {
     })
     .then(function (response) {
         console.log(response);
-        user_id = response[0].user_id; 
-        document.getElementById('create-account-container').hidden = true;
-        document.getElementById('login-buttons-container').hidden = true;
-        document.getElementById('logout-buttons-container').hidden = false;
-        document.getElementById('compose-message-container').hidden = false; 
+        if (user_id = user[0]) {
+            user_id = user[0].user_id; 
+            document.getElementById('sign-in-container').hidden = true;
+            document.getElementById('login-buttons-container').hidden = true;
+            document.getElementById('logout-buttons-container').hidden= false;
+            document.getElementById('compose-message-container').hidden = false;
+        }
     })
     .catch(function (error) {
         console.error("Fetch error:", error);

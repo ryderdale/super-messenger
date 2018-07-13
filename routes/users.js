@@ -48,10 +48,10 @@ router.post('/', function(req, res) {
         });
     })
     .then(() => {
-        return knex('users').where('email', req.body.username)
+        return knex('users').where('email', req.body.email)
     })
-    .then((user_object)=> {
-        res.status(200).send(user_object)
+    .then((user_graph)=> {
+        res.status(200).send(user_graph)
     })
     .catch((error) => {
         res.status(500).send(error);
